@@ -1,0 +1,1053 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 2200px;
+    /* background:linear-gradient(180deg,#be4229 1%,#9f3636 20%,#9f3636 100%); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+    min-width: 1200px;
+    flex-shrink: 0;
+    /* background-repeat: no-repeat; */
+}
+.wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(180deg,#be4229 1%,#9f3636 20%,#9f3636 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+}
+
+.gameArea{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: antiquewhite; */
+}
+
+/* 动画 */
+@keyframes shine {
+    0% {filter: drop-shadow(0 0 0 #fffbb8);}
+    50% {filter: drop-shadow(0 0 8px #ff793f);}
+    100% {filter: drop-shadow(0 0 0 #fffbb8);}
+}
+@keyframes float {
+    0%{opacity: 1;
+    scale: 1;
+    transform: translateY(0);}
+    100%{
+        opacity: 0;
+        scale:0.9;
+        transform:translateY(-50px)
+    }
+}
+    
+
+/* 按钮 */
+.enter{
+    animation: shine 1.5s linear infinite;
+}
+.enter-img{
+    width: 50px;
+}
+.enter.btn1{
+    position: absolute;
+    left: 5%;
+    top:50%;
+    transition: all ease 0.3s;
+}
+.enter.btn2{
+    position: absolute;
+    right: 5%;
+    top:50%;
+    transition: all ease 0.3s;
+}
+.enter.btn2 img{
+    transform: scaleX(-1);
+}
+.enter:hover{
+    cursor: pointer;
+    transform: translateX(10px);
+}
+.enter.btn2:hover{
+    transform: translateX(-10px);
+    cursor: pointer;
+}
+.close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #dd6666;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 2px #fffbb8,0 0 0 4px #9f3636;
+    font-size: 28px;
+    line-height: 27px;
+    text-align: center;
+    color: #fffacf;
+    transition: background-color ease 0.1s;
+}
+.close.btn1{
+    right: 60px;
+    top: 75px;
+}
+.close:hover{
+    background-color: #c94d4d;
+    cursor: pointer;
+}
+.close.btn2{
+    right: 60px;
+    top: 75px;
+}
+.confirm-button{
+    position: absolute;
+    top: 80%;
+    right: 22%;
+    width: 100px;
+    height: 30px;
+    background-color: #dd6666;
+    border-radius: 25px;
+    /* border: 2px solid #9f3636; */
+    box-shadow: 0 0 0 2px #9f3636,0 0 8px #feffcb;
+    font-size: 16px;
+    color: #fffacf;
+    transition: background-color ease 0.1s;
+    z-index: 111;
+}
+.confirm-button:hover{
+    background-color: #c94d4d;
+    cursor: pointer;
+}
+.confirm-button.monster{
+    top: 72%;
+    right: 51%;
+    text-align: center;
+    line-height: 30px;
+    transition: all ease 0.1s;
+}
+.confirm-button.normalCard{
+    top: 61%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 0 2px #9f3636,0 0 20px #fdff8c;
+    text-align: center;
+    line-height: 30px;
+    z-index: 100;
+}
+.confirm-button.rareCard{
+    top: 61%;
+    left: 35%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 0 2px #9f3636,0 0 20px #fdff8c;
+    text-align: center;
+    line-height: 30px;
+    z-index: 100;
+}
+.confirm-button.monsterFire{
+    top: 72%;
+    width: 130px;
+    right: 70%;
+    text-align: center;
+    line-height: 30px;
+    transition: all ease 0.1s;
+}
+.confirm-button.usefire{
+    top: 72%;
+    right: 62%;
+    text-align: center;
+    line-height: 30px;
+    transition: all ease 0.1s;
+}
+.confirm-button.honor{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    top: 68%;
+    left: 45%;
+    z-index: 999;
+} 
+.Purchase{
+    width: 100px;
+    height: 40px;
+    background-color: #ff7373;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 18px;
+    display: inline-block;
+    line-height: 40px;
+}
+.Purchase:hover{
+    cursor: pointer;
+    background-color: #e75757;
+}
+.strategyConfirm{
+    top: 88%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-align: center;
+    line-height: 30px;
+}
+.last-button{
+    width: 300px;
+    height: 50px;
+    background-color: #fff9a1;
+    border-radius: 25px;
+    /* border: 2px solid #9f3636; */
+    box-shadow: 0 0 0 3px #9f3636,0 0 8px #feffcb,inset 0 0 0 3px #fff9da;
+    font-size: 18px;
+    color: #9f3636;
+    transition: background-color ease 0.1s;
+    text-align: center;
+    line-height: 50px;
+    /* text-shadow: 0 0 2px #9f3636 */
+}
+.last-button:hover{
+    background-color: #ffef92;
+    cursor: pointer;
+}
+.playIntroductionConfirm{
+    text-align: center;
+    line-height: 30px;
+}
+
+/* 信息界面 */
+.messageWall{
+    width: 400px;
+    height: 720px;
+    /* background-color: aqua; */
+    background-image: url("./picture/messageWall.png");
+    background-size: contain;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+    gap: 15px;
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.4s ease; 
+    padding-top: 140px;
+}
+.moneyDisplay{
+    width: 290px;
+    height: 40px;
+    background-color: #dd6666;
+    border-radius: 25px;
+    border: 2px solid #9f3636;
+    line-height: 35px;
+    text-align: left;
+    text-indent: 15px;
+    font-size: 20px;
+    color: #fffacf;
+    
+
+}
+.fameWall{
+    width: 290px;
+    height: 300px;
+    /* background-color: rgb(120, 120, 120); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 18px;
+}
+h2{
+    font-size: 24px;
+    color: #9f3636;
+}
+table{
+    border-collapse: collapse; /* 合并单元格边框，消除边框间隙 */
+    border-spacing: 0; /* 强制设置单元格间距为0（兼容部分浏览器） */
+    border: none; /* 可选：去掉表格整体边框（按需选择） */
+}
+thead.thead1 tr th{
+    width: 145px;
+    height: 30px;
+    background-color: #feffcb;
+    border: 2px solid #9f3636;
+    
+}
+tbody.tbody1 tr td{
+    width: 145px;
+    height: 30px;
+    background-color: #fffded;
+    border: 2px solid #9f3636;
+    text-align: center;
+
+}
+.whetherGain{
+    width: 45px;
+    height: 20px;
+    background-color: #d3d3d3;
+    /* background-color: #c0f1a0; */
+    display: inline-block;
+    line-height: 20px;
+    text-align: center;
+    
+}
+.firecracker{
+    width: 110px;
+    height: 40px;
+    /* background-color: #b84242; */
+    display: flex;
+}
+.firecracker img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.firecracker span{
+    line-height: 50px;
+}
+
+
+
+/* 游戏区域 */
+ /* 信息面板 */
+.gameWall{
+    width: 400px;
+    height: 700px;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.information{
+    width: 400px;
+    height: 250px;
+    /* background-color: #ffeb54; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    
+}
+.avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 3px #9f3636,0 0 0 6px #fffbb8,0 0 18px #fffbb8;
+}
+.avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.playerName{
+    font-size: 24px;
+    font-weight: bold;
+    color: #feffcb;
+    text-shadow: 0 0 3px #710505;
+}
+.signature{
+    margin-top: -10px;
+    font-size: 16px;
+    color: #eaa08c;
+}
+ /* 钱袋点击区域 */
+.clickArea{
+    width: 400px;
+    height: 450px;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    justify-content: center;
+    padding-top: 60px;
+}
+h2{
+    font-size: 24px; 
+    color: #710505;
+}
+.textArea p{
+    font-size: 20px;
+    color: #710505;
+    
+}
+.textArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+}
+.moneyBag{
+    position: relative;
+    width: 400px;
+    text-align: center;
+}
+.moneyBag-img{
+    width: 250px;
+    animation: shine 1.5s linear infinite;
+    transition: transform 0.1s ease;
+}
+.moneyBag-img:hover{
+    cursor: pointer;
+}
+.moneyBag-img:active{
+    transform: scale(0.95);
+}
+/* 漂浮文字 */
+.floatText{
+    position: absolute;
+    color: #feffcb;
+    text-shadow: 0 0 3px #be4229;
+    font-size: 20px;
+    pointer-events: none;
+    animation: float 1s forwards;
+    
+}
+
+
+
+/* 卡片区域 */
+.cardWall{
+    width: 400px;
+    height: 720px;
+    /* background-color: aqua; */
+    background-image: url("./picture/cardWall.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+    padding-top: 130px;
+    gap: 40px;
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.4s ease; 
+    flex-shrink: 0;
+}
+.cardGrid{
+    width: 300px;
+    /* background-color: #8c8c8c; */
+    display: grid;
+    grid-template-columns: 120px 120px;
+    grid-template-rows: 120px 120px 120px 120px;
+    gap: 20px;
+    justify-content: center;
+
+
+}
+.card{
+    /* background-color: aqua; */
+    position: relative;
+    
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #9f3636;
+
+}
+.card.card7{
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+}
+.cardNum{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #dd6666;
+    text-align: center;
+    text-shadow: 0 0 2px #710505;
+    line-height: 22px;
+    font-size: 14px;
+    color: #feffcb;
+    box-shadow: 0 0 0 2px #fdff8c,0 0 0 4px #9f3636;
+}
+
+
+
+
+
+
+
+/* 表单弹窗 */
+.collectInformation{
+    position: fixed;
+    width: 700px;
+    height: 650px;
+    /* background-color: aqua; */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    background-image: url("./picture/welcomeEnter.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+form{
+    position: absolute;
+    top: 65%;
+    left: 35%;
+    height: 200px;
+    transform: translate(-50%,-50%);
+    /* background-color: #fff; */
+    border-radius: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    font-size: 20px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    color: #9f3636;
+}
+input[type="text"]{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px solid #9f3636;
+    padding-left: 10px;
+    font-size: 16px;
+}
+button[type="submit"]{
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background-color: #c94d4d;
+    border: 2px solid #9f3636;
+    color: #feffcb;
+    padding-left: 10px;
+    font-size: 20px;
+    text-indent: -5px;
+}
+button[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #b84242;
+}
+.collectInformation p{
+    position: absolute;
+    top: 41%;
+    left: 8%;
+    font-size: 18px;
+    color: #710505;
+    /* white-space: nowrap; */
+}
+.popMask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 97;
+    display: none;
+}
+
+/* 游玩介绍弹窗 */
+.playIntroduction{
+    position: fixed;
+    width: 1000px;
+    height: 500px;
+    /* background-color: aqua; */
+    top: 40%;
+    left: 53%;
+    transform: translate(-50%,-50%);
+    z-index: 98;
+    background-image: url("./picture/playIntroduction.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+h4{
+    color: #9f3636;
+    text-indent: 11px;
+
+}
+.playIntroductionContainer{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+}
+.playIntroductionContent{
+    margin-top: 10px;
+    width: 530px;
+    height: 200px;
+    background-color: #ffffff77;
+    padding: 15px;
+    border-radius: 12px;
+    overflow-y: scroll;
+    box-shadow: 0 0 0 1.5px #9f3636;
+    color: #9f3636;
+    line-height: 1.7;
+}
+/* 整个滚动条 */
+.playIntroductionContent::-webkit-scrollbar{
+    width: 13px;
+    height: 10px;
+    /* box-shadow: 0 0 0 5px #9f3636; */
+}
+/* 滚动条轨道 */
+.playIntroductionContent::-webkit-scrollbar-track{
+    background: #facfc0; /* 轨道背景色 */
+    border-radius: 5px;
+    border: 2px solid #9f3636;
+}
+/* 滚动条滑块 */
+.playIntroductionContent::-webkit-scrollbar-thumb{
+    background: #9f3636; 
+    border-radius: 5px;
+    
+}
+/* 滚动条滑块悬停效果 */
+.playIntroductionContent::-webkit-scrollbar-thumb:hover{
+    background: #c13d00; 
+}
+
+/* 年兽出没弹窗 */
+.monsterContainer{
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: 45%;
+    left: 50%;
+    /* background-color: #41b0ff; */
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    background-image: url("./picture/monster.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+}
+/* 用鞭炮赶走年兽 */
+.usefireContainer{
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: 45%;
+    left: 50%;
+    /* background-color: #41b0ff; */
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    background-image: url("./picture/usefire.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+
+}
+
+
+/* 抽中普通卡片弹窗 */
+.normalCardContainer{
+    position: fixed;
+    width: 1300px;
+    height: 800px;
+    top: 45%;
+    left: 50%;
+    /* background-color: #41b0ff; */
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    background-image: url("./picture/normalCardPop.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.normalCardImage{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    top: 52%;
+    left: 60%;
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+}
+.normalCardText{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 200px;
+    width: 250px;
+    /* background-color: chartreuse; */
+    top: 52%;
+    left: 41%;
+    transform: translate(-50%,-50%);
+    color: #9f3636;
+    font-size: 20px;
+    padding-top: 8px;
+    text-align: center;
+    line-height: 1.7;
+}    
+/* 抽中稀有卡片 */
+.rareCardContainer{
+    position: fixed;
+    width: 1500px;
+    height: 800px;
+    top: 45%;
+    left: 50%;
+    /* background-color: #41b0ff; */
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    background-image: url("./picture/rareCardPop.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.rareCardImage{
+    position: absolute;
+    width: 355px;
+    height: 200px;
+    background-color: aqua;
+    top: 52%;
+    left: 60%;
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+}
+.rareCardText{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 200px;
+    width: 280px;
+    /* background-color: chartreuse; */
+    top: 52%;
+    left: 36%;
+    transform: translate(-50%,-50%);
+    color: #9f3636;
+    font-size: 20px;
+    padding-top: 8px;
+    text-align: center;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}    
+
+/* 获得荣誉称号弹窗 */
+.honorPop{
+    position: fixed;
+    width: 1000px;
+    height: 700px;
+    top: 45%;
+    left: 50%;
+    /* background-color: #41b0ff; */
+    transform: translate(-50%,-50%);
+    z-index: 110;
+    background-image: url("./picture/honorPop.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.honorTitleText{
+    position: absolute;
+    top: 43%;
+    left: 27%;
+    color: #9f3636;
+    font-size: 20px;
+    padding-top: 8px;
+    text-align: center;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+.honorPopMask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 109;
+    display: block;
+}
+
+/* 兑换区 */
+.purchaseArea{
+    background-color: #fffdea;
+    width: 1000px;
+    height: 820px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 50px;
+    box-shadow: 0 0 0 6px #9f3636,0 0 0 7.5px #fffbb8;
+}
+.textTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.textTitle span{
+    font-size: 32px;
+    color: #9f3636;
+    font-weight: bold;
+}
+.textTitle img{
+    width: 50px;
+    height: 50px;
+    
+}
+.purchaseTable{
+    width: 800px;
+    height: 300px;
+    /* background-color: rgb(255, 255, 203); */
+    border: 30px;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 15px;
+    color: #9f3636;
+}
+.purchaseTable tr{
+    box-shadow: 0 0 0 1.5px #bd5858;
+    
+    /* background-color: #fffdea; */
+    
+}
+.thead2 th{
+    height: 50px;
+    font-size: 20px;
+    color: #9f3636;
+    font-weight: bold;
+}
+.tbody2 tr{
+    height: 150px;
+}
+
+.goods{
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.sign{
+    height: 90px;
+    width: 90px;
+    background-color: #fffff3;
+    box-shadow: inset 0 0 4px #cf5858;
+    border-radius: 12px;
+}
+.sign img{
+    width: 80px;
+    height: 80px;
+}
+.goods span{
+    margin-top: 8px;
+    font-size: 16px;
+    color: #9f3636;
+    font-weight: bold;
+}
+.purchaseMoneyNum{
+    font-size: 20px;
+    color: #9f3636;
+    font-weight: bold;
+}
+
+
+
+/* 高分秘籍弹窗 */
+.strategyContainer{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    display: none;
+}
+.strategyPop{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fffdea;
+    width: 1000px;
+    height: 700px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 50px;
+    box-shadow: 0 0 0 6px #9f3636,0 0 0 7.5px #fffbb8;
+    z-index: 50;
+}
+.popMask.strategyPopMask{
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 49;
+    display: block;
+}
+.strategyPop p{
+    width: 850px;
+    height: 500px;
+    padding: 30px;
+    background-color: chartreuse;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #9f3636;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    padding-top: 8px;
+    overflow-y:scroll;
+    background-color: #ffffff77;
+    box-shadow: 0 0 0 1.5px #9f3636;
+}
+/* 整个滚动条 */
+.strategyPop p::-webkit-scrollbar{
+    width: 13px;
+    height: 10px;
+    /* box-shadow: 0 0 0 5px #9f3636; */
+}
+/* 滚动条轨道 */
+.strategyPop p::-webkit-scrollbar-track{
+    background: #facfc0; /* 轨道背景色 */
+    border-radius: 5px;
+    border: 2px solid #9f3636;
+}
+/* 滚动条滑块 */
+.strategyPop p::-webkit-scrollbar-thumb{
+    background: #9f3636; 
+    border-radius: 5px;
+    
+}
+/* 滚动条滑块悬停效果 */
+.strategyPop p::-webkit-scrollbar-thumb:hover{
+    background: #c13d00; 
+}
+
+
+/* 背包 */
+.bagContainer{
+    background-color: #fffdea;
+    width: 320px;
+    height: 100px;
+    border-radius: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* box-shadow: 0 0 0 2px #9f3636; */
+    padding: 5px 10px;
+    color: #9f3636;
+}
+.itemContainer{
+    display: flex;
+    align-items: center;
+    /* padding-left: 15px; */
+    padding: 5px 15px;
+    background-color: #fffade;
+    box-shadow: 0 0 0 1px #9f3636,inset 0 0 4px #d34c4c;
+    width: 265px;
+    height: 80px;
+    border-radius: 10px;
+    gap: 10px;
+    overflow-x: auto;
+}
+.item{
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(180deg, #fffdc8 50%,#ffe2bc);
+    /* background-color: #fffdc8; */
+    box-shadow: 0 0 0 1px #dc7373,inset 0 0 2px #c25e33;
+    border-radius: 5px;
+    transition: all 0.1s ease-in-out;
+}
+.item:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.itemImg{
+    width: 45px;
+    height: 45px;
+    
+}
+.bagContainer span{
+    font-weight: bold;
+}
+/* 整个滚动条 */
+.itemContainer::-webkit-scrollbar{
+    width: 13px;
+    height: 8px;
+    /* box-shadow: 0 0 0 5px #9f3636; */
+}
+/* 滚动条轨道 */
+.itemContainer::-webkit-scrollbar-track{
+    background: #facfc0; /* 轨道背景色 */
+    border-radius: 5px;
+    border: 2px solid #9f3636;
+}
+/* 滚动条滑块 */
+.itemContainer::-webkit-scrollbar-thumb{
+    background: #9f3636; 
+    border-radius: 5px;
+    
+}
+/* 滚动条滑块悬停效果 */
+.itemContainer::-webkit-scrollbar-thumb:hover{
+    background: #c13d00; 
+}
+.bagCardImg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url('./picture/card1.jpg');
+    background-size: 400px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+/* 底部按钮区域 */
+.bottonArea{
+    height: 200px;
+    width: 1000px;
+    /* background-color: #fffdea; */
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+/* footer */
+.footer{
+    height: 150px;
+    width: 100%;
+    background-color: #922c2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    color: #fff8cf;
+    box-shadow: 0 -6px 10px #cb33335e;
+}

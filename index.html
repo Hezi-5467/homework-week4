@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年红包页面</title>
+    <link rel="stylesheet" href="./style1.css">
+</head>
+<body>
+    <div class="wrapper"></div>
+    <!-- 弹窗 -->
+
+     <!-- 1.收集信息表单 -->
+     <div class="collectInformation">
+        <p>你好呀，开始游戏之前请填写一下你的个人信息吧！</p>
+        <form >
+            <div>姓名：<input type="text" name="username" required ></div>
+            <div>
+                <input type="radio" name="gender" id="male" value="男"checked ">
+                <label for="male">男</label>
+                <input type="radio" name="gender" id="female" value="女" >
+                <label for="female">女</label>
+            </div>
+            <div>个性签名：
+                <input type="text" name="signature" required>
+            </div>
+            <button type="submit">提交</button>
+        </form>
+     </div>
+     <div class="popMask"></div>
+     <!-- 2.游玩介绍弹窗 -->
+      <div class="playIntroduction">
+        <div class="playIntroductionContainer">
+            <h4 class="greeting">亲爱的玩家，你好呀，新年快乐！🐎</h4>
+            <h4>祝你马年大吉，万事顺意，好运一马当先！</h4>
+            <div class="playIntroductionContent">
+                <p>
+                欢迎来到这款新年趣味小游戏～<br>
+                <br>
+                【游戏玩法】：<br>
+                点击屏幕中间的红包，就能开启一整年的好运气啦。<br>
+                大多数时候，你每点开一个红包，都会获得 +100 金钱；<br>
+                偶尔还会遇到特殊红包，可能开出精美收藏卡片并赠送鞭炮，甚至触发<strong>神马显灵</strong>，直接获得稀有卡片；<br>
+                当然啦，在新年调皮的<strong>年兽也可能会突然出现</strong>，不小心抢走一点点小钱，别灰心，你可以用<strong>鞭炮</strong>赶走它！<br>
+                <br>
+                【界面介绍】：<br>
+                界面左侧是你的信息栏，可以随时查看当前拥有的<strong>金钱</strong>和<strong>荣誉称号</strong>；<br>
+                右侧会展示你收集到的所有卡片，越集越有成就感。<br>
+                往下滑动还能进入兑换区：<br>
+                你可以用赚到的金钱兑换心仪的<strong>卡片</strong>，或者购买<strong>游戏秘籍</strong>。<br>
+                最后还能生成你的专属<strong>游戏总结</strong>，留住这份马年好运。<br>
+                <br>
+                祝你玩得开心，红包多多，卡片集齐，马年一路旺到底！🧧
+            </p>
+            </div>
+        </div>
+        <div class="confirm-button playIntroductionConfirm">
+            确认
+        </div>
+     </div>
+     <!-- 3.高分秘籍弹窗 -->
+      <div class="strategyContainer">
+
+        <div class="strategyPop">
+            <div class="textTitle">
+                <img src="./picture/firework_sign.png" alt="">
+                 <span>高分秘籍</span>
+                 <img src="./picture/firework_sign.png" alt="">
+            </div>
+            <p>
+                <u>想要在游戏里轻松拿下高分、集齐稀有卡片、解锁全部荣誉称号？这份精心整理的高分秘籍，助你一路畅通，快速成为游戏大神！</u><br>
+                <br>
+                一、卡片获取技巧<br>
+                1. 稀有卡片需要在金钱 <strong>＞50000</strong> 时才有机会抽到。前期可以多使用鞭炮驱赶年兽，快速积累金钱，早日解锁稀有卡片。<br>
+                2. 普通卡片若是一直抽不到，当金钱 <strong>≥10000</strong> 后，可前往金钱兑换区直接购买，既省心又省力。<br>
+                <br>
+                二、荣誉称号获取方式<br>
+                - 万贯入门选手：金钱＞10000，难度：★★☆<br>
+                - 万贯财神：金钱＞100000，难度：★★★★★<br>
+                - 神马欧皇：集齐7张卡片，难度：★★★★<br>
+                - 百抽小能手：点击数＞100，难度：★★☆<br>
+                - 千抽小能手：点击数＞1000，难度：★★★★<br>
+                - 爆竹辞旧先锋：鞭炮使用次数＞20，难度：★★★☆<br>
+                <br>
+                三、高分核心秘诀<br>
+                获得的荣誉称号越多、集齐的卡片越全、积攒的金钱越多，最终的综合评分就会越高。
+            </p>
+        </div>
+        <div class="confirm-button strategyConfirm">
+            确定
+        </div>
+        <div class="popMask strategyPopMask"></div>
+
+      </div>
+      
+
+
+    <div class="gameArea">
+        <div class="enter btn1">
+                <img src="./picture/enterButton.png" alt="显示" class="enter-img">
+        </div>
+        
+        <div class="messageWall">
+            <div class="firecracker">
+                <img src="./picture/firecracker.png" alt="">
+                <span>：<span class="firecrackerNum">0</span></span>
+                
+            </div>
+            <div class="moneyDisplay">
+                <p class="moneyNum">当前金钱：<span>0</span></p>
+            </div>
+            <div class="fameWall">
+                <h2>我的荣誉称号</h2>
+                <div class="fameTable">
+                    <table>
+                        <thead class="thead1">
+                            <tr>
+                               <th>荣誉称号</th>
+                               <th>是否获得</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody1">
+                            <tr>
+                                <td>万贯入门选手</td>
+                                <td><span class="whetherGain isReachTenThousand">否</span></td>
+                            </tr>
+                            <tr>
+                                <td>万贯财神</td>
+                                <td><span class="whetherGain isReachOneHundredThousand">否</span></td>
+                            </tr>
+                            <tr>
+                                <td>神马欧皇</td>
+                                <td><span class="whetherGain obtainAllcards">否</span></td>
+                            </tr>
+                            <tr>
+                                <td>百抽小能手</td>
+                                <td><span class="whetherGain isReachHundredPoint">否</span></td>
+                            </tr>
+                            <tr>
+                                <td>千抽小能手</td>
+                                <td><span class="whetherGain isReachThousandPoint">否</span></td>
+                            </tr>
+                            <tr>
+                                <td>爆竹辞旧先锋</td>
+                                <td><span class="whetherGain useFirecrackertwenty">否</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="close btn1">
+                <p>+</p>
+            </div>
+            <div class="bagContainer">
+                <span>背<br>包</span>
+                <div class="itemContainer">
+                    <!-- <div class="item">
+                        <img src="./picture/strategy_sign.png" alt="">
+                    </div> -->
+                    
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gameWall">
+            <div class="information">
+                <div class="avatar">
+                    <img src="./picture/avatar-female.jpg" alt="">
+                </div>
+                <div class="playerName">
+                    <p>玩家姓名</p>
+                </div>
+                <div class="signature">
+                    <p>玩家签名拉拉拉拉啊啦啦啦</p>
+                </div>
+            </div>
+            <div class="clickArea">
+                <div class="textArea">
+                    <h2>点击钱袋，接住财运</h1>
+                    <p>当前金钱：<span>0</span></p>
+                </div>
+                <div class="moneyBag">
+                    <img src="./picture/moneyBag.png" alt="钱袋" class="moneyBag-img">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="enter btn2">
+                <img src="./picture/enterButton.png" alt="显示" class="enter-img">
+            </div>
+        <div class="cardWall">
+            
+            <div class="close btn2">
+                <p>+</p>
+            </div>
+
+            <div class="cardGrid">
+                <div class="card card1">
+                    <div class="cardNum cardNum1">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>
+                <div class="card card2">
+                    <div class="cardNum cardNum2">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>
+                <div class="card card3">
+                    <div class="cardNum cardNum3">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>
+                <div class="card card4">
+                    <div class="cardNum cardNum4">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>  
+                <div class="card card5">
+                    <div class="cardNum cardNum5">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>
+                <div class="card card6">
+                    <div class="cardNum cardNum6">0</div>
+                    <img src="./picture/notGain.jpg" alt="未获得">
+                </div>
+                <div class="card card7">
+                    <div class="cardNum cardNum7">0</div>
+                    <img src="./picture/notGain2.jpg" alt="未获得">
+                </div>
+                 
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="purchaseArea">
+        <div class="textTitle">
+            <img src="./picture/firework_sign.png" alt="">
+            <span>金钱兑换区</span>
+            <img src="./picture/firework_sign.png" alt="">
+        </div>
+        <p class="purchaseMoneyNum">当前金钱：<span>0</span></p>
+        <div class="purchaseContainer">
+            <table class="purchaseTable">
+                <thead class="thead2">
+                    <tr>
+                    <th>商品名称</th>
+                    <th>商品详情</th>
+                    <th>是否购买</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody2">
+                    <tr>
+                        <td class="goods">
+                            <span class="sign">
+                                <img src="./picture/normalCard_sign.png" alt="普通卡片">
+                            </span>
+                            <span>一张普通卡片</span>
+                        </td>
+                        <td>￥10000<br>可以指定获得任意一张普通卡片！</td>
+                        <td><div class="Purchase normalCard">购买</div></td>
+                    </tr>
+                    <tr>
+                        <td class="goods">
+                            <span class="sign">
+                                <img src="./picture/rareCard_sign.png" alt="稀有卡片">
+                            </span>
+                            <span>一张稀有卡片</span>
+                        </td>
+                        <td>￥80000<br>可以获得一张稀有卡片！</td>
+                        <td><div class="Purchase rareCard">购买</div></td>
+                    </tr>
+                    <tr >
+                        <td class="goods">
+                            <span class="sign">
+                                <img src="./picture/strategy_sign.png" alt="游戏高分秘籍">
+                            </span>
+                            <span>游戏高分秘籍</span>
+                        </td>
+                        <td>￥20000<br>可以获得游戏高分秘籍！</td>
+                        <td><div class="Purchase gameStrategy">购买</div></td>
+                    </tr>
+                </tbody>
+                
+                
+            </table>
+            
+        </div>
+
+    </div>
+
+    <div class="bottonArea">
+        <div class="last-button generateReport">生成我的游戏报告</div>
+        <div class="last-button resetGame">重置游戏</div>
+    </div>
+
+    <div class="footer">
+        <p>All designed by Huang Zhi @swust</p>
+
+    </div>
+
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
