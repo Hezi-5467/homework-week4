@@ -499,7 +499,7 @@ function updatePurchaseStrategyDisplay(){
         console.log('触发特殊事件');
         //判断是年兽还是卡片
         const randomDiffer=Math.random();
-        if(randomDiffer<0.55&&gameData.point>=30){
+        if(randomDiffer<0.55&&gameData.point>=30&&gameData.money>=1000){
             //触发年兽事件
             monsterPop();
             console.log('触发年兽事件');
